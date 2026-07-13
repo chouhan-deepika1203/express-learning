@@ -1,0 +1,24 @@
+{
+  "name": "express-learning",
+  "version": "1.0.0",
+  "description": "Learning Nodejs with express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chouhan-deepika1203/express-learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/chouhan-deepika1203/express-learning/issues"
+  },
+  "homepage": "https://github.com/chouhan-deepika1203/express-learning#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
