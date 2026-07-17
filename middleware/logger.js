@@ -1,9 +1,17 @@
 export function logger(req, res, next) {
-    const start = Date.now();
-    res.on('finish', () => {
-        const duration = Date.now() - start;
-        console.log(`${req.method} ${req.originalUrl} ${res.statusCode} - ${duration}ms`);
+    const startTime = Date.now();
+
+    const timestamp = new Date().toISOString();
+
+    console.log(`[${timestamp}] ${req.method} ${req.originalUrl} - Request Received`);
+
+    res.on("finish", () => {
+        const duration = Date.now() - startTime;
+
+        console.log(
+            `[${timestamp}] ${req.method} ${req.originalUrl} | ${res.statusCode} | ${duration}ms | ${req.ip}`
+        );
     });
-     console.log(`${req.method} ${req.originalUrl}`);
+
     next();
 }
