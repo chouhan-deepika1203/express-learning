@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "name": "Deepika Chouhan",
+    "email": "deepika@gmail..com",
+    "password": "MyPassword",
+    "hashedPassword": "$2b$10$LMD9CsHhOOpcVN3FWtcwXeXnseGlTDhgyXcPSGLcXfnDRKsKr0xRW"
+  }
+]

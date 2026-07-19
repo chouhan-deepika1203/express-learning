@@ -1,27 +1,33 @@
-import { register as registerUser } from '../services/authService.js';
-//fix below code to use registerUser instead of register to avoid naming conflict
+import { register as registerUser, loginUser } from '../services/authService.js';
+import { validateAuthInput } from '../utils/authValidation.js';
 
 async function register(req, res) {
     try {
-        // name, email and password are required
-        if (!req.body.name || !req.body.email || !req.body.password) {
-            return res.status(400).json({ message: "Name, email and password are required" });
+        const validationError = validateAuthInput(req.body, { requireName: true });
+        if (validationError) {
+            return res.status(400).json({ message: validationError });
         }
-        // email must be valid
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;;
-        if (!emailRegex.test(req.body.email)) {
-            return res.status(400).json({ message: "Invalid email format" });
-        }
-        // password must be at least 8 characters long
-        if (req.body.password.length < 8) {
-            return res.status(400).json({ message: "Password must be at least 8 characters long" });
-        }
-        const user = await registerUser(req.body);
 
+        const user = await registerUser(req.body);
         res.status(201).json(user);
     } catch (error) {
         res.status(500).json({ message: "Error registering user" });
     }
 }
 
-export { register };
+async function login(req, res) {
+    try {
+        const validationError = validateAuthInput(req.body);
+        if (validationError) {
+            return res.status(400).json({ message: validationError });
+        }
+        const token = await loginUser(req.body);
+        // For demonstration, we will just return a success message.
+        // In a real application, you would verify the user's credentials and generate a JWT token.
+        res.status(200).json({ message: "Login successful", token });
+    } catch (error) {
+        res.status(500).json({ message: "Error logging in user" });
+    }
+}
+
+export { register, login };
