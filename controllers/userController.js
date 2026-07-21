@@ -75,7 +75,11 @@ export const deleteUser = async (req, res) => {
 
 export const getProfile = async (req, res) => {
     try {
-        const user = req.user; // Access the decoded user information from the request object
+        const userId = req.user.id;
+        const user = await userService.getUserById(userId);
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
         res.json(user);
     } catch (error) {
         res.status(500).json({ message: "Error fetching profile" });
