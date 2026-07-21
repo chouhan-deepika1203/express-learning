@@ -1,11 +1,11 @@
 import express from 'express';
 import userRoutes from './routes/userRoutes.js';
 import authRoutes from './routes/authRoutes.js';
-import {logger} from './middleware/logger.js';
-import {requestCounter} from './middleware/requestCounter.js';
+import { logger } from './middleware/logger.js';
+import { requestCounter } from './middleware/requestCounter.js';
 
 const app = express();
-const PORT = 8080;
+const PORT = 8081;
 
 app.use(express.json());
 app.use(requestCounter); // global request counter middleware for all routes

@@ -4,5 +4,11 @@
     "email": "deepika@gmail..com",
     "password": "MyPassword",
     "hashedPassword": "$2b$10$LMD9CsHhOOpcVN3FWtcwXeXnseGlTDhgyXcPSGLcXfnDRKsKr0xRW"
+  },
+  {
+    "name": "Deepika",
+    "email": "deepika@gmail.com",
+    "password": "MyPassword123",
+    "hashedPassword": "$2b$10$.I9SLC49TJvBP9BV7kTPleq6WzEDp2QA9ZP6o76pweM8s9iY5p4WS"
   }
 ]
