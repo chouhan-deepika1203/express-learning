@@ -72,3 +72,12 @@ export const deleteUser = async (req, res) => {
         res.status(500).json({ message: "Error deleting user" });
     }
 };
+
+export const getProfile = async (req, res) => {
+    try {
+        const user = req.user; // Access the decoded user information from the request object
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching profile" });
+    }
+};
