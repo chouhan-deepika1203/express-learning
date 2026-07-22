@@ -1,8 +1,8 @@
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function validateAuthInput(payload, { requireName = false } = {}) {
-    if (requireName && (!payload.name || !payload.email || !payload.password)) {
-        return 'Name, email and password are required';
+    if (requireName && (!payload.name || !payload.email || !payload.password || !payload.role)) {
+        return 'Name, email, password and role are required';
     }
 
     if (!payload.email || !payload.password) {
