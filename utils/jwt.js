@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
+import "dotenv/config";
 
-const SECRET_KEY = 'your-secret-key'; // Replace with a secure key in production
+const SECRET_KEY = process.env.JWT_SECRET; // Use environment variable for secret key
 
 export const generateToken = (payload) => {
     return jwt.sign({ id: payload.id, email: payload.email, role: payload.role }, SECRET_KEY, { expiresIn: '1h' });
