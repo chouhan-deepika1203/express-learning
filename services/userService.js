@@ -1,7 +1,7 @@
 const fs = await import('fs/promises');
 const USERS_FILE = new URL('../data/users.json', import.meta.url);
 
-const getUsersFromFile = async () => {
+export const getUsersFromFile = async () => {
     try {
         const data = await fs.readFile(USERS_FILE, 'utf-8');
         return JSON.parse(data);
